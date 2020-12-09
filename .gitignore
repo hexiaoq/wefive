@@ -10,3 +10,6 @@ config/keystore-7000103520.json
 
 #repo
 .git
+
+#logfile
+logfile

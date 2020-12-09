@@ -1,0 +1,75 @@
+[qSkipTool]2020/12/07 09:50:56 main.go:16: hello
+[qSkipTool]2020/12/07 10:08:33 main.go:19: hello
+[qSkipTool]2020/12/08 00:32:10 main.go:19: hello
+[qSkipTool]2020/12/08 00:32:33 main.go:19: hello
+[qSkipTool]2020/12/08 00:42:44 login_service.go:16: 用户不存在！phone =  
+[qSkipTool]2020/12/08 01:00:03 login_service.go:16: 用户不存在！phone =  
+[qSkipTool]2020/12/08 01:00:50 login_service.go:16: 用户不存在！phone =  
+[qSkipTool]2020/12/08 01:01:10 login_service.go:16: 用户不存在！phone =  
+[DEBUG]2020/12/08 01:01:42 main.go:19: hello
+[DEBUG]2020/12/08 01:01:44 login_service.go:18: 用户不存在！phone =  
+[DEBUG]2020/12/08 01:03:09 login_service.go:18: 用户不存在！phone =  
+[DEBUG]2020/12/08 01:04:10 main.go:19: hello
+[DEBUG]2020/12/08 01:22:53 login_service.go:16: 用户不存在！phone =  18897776559
+[DEBUG]2020/12/08 01:28:43 main.go:19: hello
+[DEBUG]2020/12/08 01:28:47 login_service.go:36: 管理员密码错误！phone =  18897776559
+[DEBUG]2020/12/08 01:48:46 main.go:19: hello
+[DEBUG]2020/12/08 02:20:52 login_service.go:32: 管理员不存在！phone =  18897776552
+[DEBUG]2020/12/08 02:46:55 login_service.go:16: 用户不存在！phone =  18897776559
+[DEBUG]2020/12/08 04:16:07 main.go:19: hello
+[DEBUG]2020/12/08 04:17:30 main.go:19: hello
+[DEBUG]2020/12/08 04:19:16 main.go:19: hello
+[DEBUG]2020/12/08 04:21:28 main.go:19: hello
+[DEBUG]2020/12/08 04:45:09 main.go:19: hello
+[DEBUG]2020/12/08 09:40:19 main.go:19: hello
+[DEBUG]2020/12/08 10:23:31 main.go:19: hello
+[DEBUG]2020/12/08 10:38:51 main.go:19: hello
+[DEBUG]2020/12/08 10:51:49 main.go:19: hello
+[DEBUG]2020/12/08 11:35:47 main.go:19: hello
+[DEBUG]2020/12/08 12:22:52 dept_service.go:91: record not found
+[DEBUG]2020/12/08 12:22:52 gover_service.go:14: record not found
+[DEBUG]2020/12/08 12:22:57 dept_service.go:91: record not found
+[DEBUG]2020/12/08 12:22:57 gover_service.go:14: record not found
+[DEBUG]2020/12/08 12:23:57 dept_service.go:91: record not found
+[DEBUG]2020/12/08 12:23:57 gover_service.go:14: record not found
+[DEBUG]2020/12/08 12:24:01 dept_service.go:91: record not found
+[DEBUG]2020/12/08 12:24:01 gover_service.go:14: record not found
+[DEBUG]2020/12/08 12:24:48 dept_service.go:91: record not found
+[DEBUG]2020/12/08 12:24:48 gover_service.go:14: record not found
+[DEBUG]2020/12/08 12:25:02 gover_service.go:23: Error 1364: Field 'gover_id' doesn't have a default value
+[DEBUG]2020/12/08 12:27:04 gover_service.go:23: Error 1062: Duplicate entry '18897776559' for key 'governor.phone'
+[DEBUG]2020/12/08 12:42:42 main.go:19: hello
+[DEBUG]2020/12/08 12:53:38 dept_service.go:79: record not found
+[DEBUG]2020/12/08 12:53:38 gover_service.go:61: &{400 record not found <nil>}
+[DEBUG]2020/12/08 12:53:38 gover_service.go:50: record not found
+[DEBUG]2020/12/08 12:53:40 dept_service.go:79: record not found
+[DEBUG]2020/12/08 12:53:40 gover_service.go:61: &{400 record not found <nil>}
+[DEBUG]2020/12/08 12:53:40 gover_service.go:50: record not found
+[DEBUG]2020/12/08 12:53:46 dept_service.go:79: record not found
+[DEBUG]2020/12/08 12:53:46 gover_service.go:61: &{400 record not found <nil>}
+[DEBUG]2020/12/08 12:53:46 gover_service.go:50: record not found
+[DEBUG]2020/12/08 12:55:56 dept_service.go:79: record not found
+[DEBUG]2020/12/08 12:55:56 gover_service.go:61: &{400 record not found <nil>}
+[DEBUG]2020/12/08 12:55:56 gover_service.go:50: record not found
+[DEBUG]2020/12/08 12:56:07 gover_service.go:23: Error 1062: Duplicate entry '18897776559' for key 'governor.phone'
+[DEBUG]2020/12/08 12:56:29 dept_service.go:79: record not found
+[DEBUG]2020/12/08 12:56:29 gover_service.go:61: &{400 record not found <nil>}
+[DEBUG]2020/12/08 12:56:29 gover_service.go:50: record not found
+[DEBUG]2020/12/08 13:10:00 login_service.go:20: 密码错误！phone =  18897776559
+[DEBUG]2020/12/08 13:10:43 login_service.go:36: 管理员密码错误！phone =  18897776559
+[DEBUG]2020/12/09 02:19:15 main.go:19: hello
+[DEBUG]2020/12/09 02:21:06 login_service.go:36: 管理员密码错误！phone =  18897776559
+[DEBUG]2020/12/09 02:21:13 login_service.go:36: 管理员密码错误！phone =  18897776559
+[DEBUG]2020/12/09 02:46:56 main.go:19: hello
+[DEBUG]2020/12/09 02:47:33 main.go:19: hello
+[DEBUG]2020/12/09 02:48:51 main.go:19: hello
+[DEBUG]2020/12/09 06:21:55 main.go:19: hello
+[DEBUG]2020/12/09 06:22:24 login_service.go:22: 密码错误！phone =  18897776559
+[DEBUG]2020/12/09 06:22:51 login_service.go:22: 密码错误！phone =  18897776559
+[DEBUG]2020/12/09 07:09:42 business_service.go:40: Error 1054: Unknown column 'procedure' in 'field list'
+[DEBUG]2020/12/09 07:16:14 dept_service.go:91: record not found
+[DEBUG]2020/12/09 07:16:14 dept_service.go:101: &{400 record not found <nil>}
+[DEBUG]2020/12/09 07:22:25 dept_service.go:93: record not found
+[DEBUG]2020/12/09 07:22:25 dept_service.go:103: record not found
+[DEBUG]2020/12/09 07:56:02 dept_service.go:91: record not found
+[DEBUG]2020/12/09 07:56:02 dept_service.go:101: record not found

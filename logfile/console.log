@@ -73,3 +73,49 @@
 [DEBUG]2020/12/09 07:22:25 dept_service.go:103: record not found
 [DEBUG]2020/12/09 07:56:02 dept_service.go:91: record not found
 [DEBUG]2020/12/09 07:56:02 dept_service.go:101: record not found
+[DEBUG]2020/12/10 10:28:38 login_service.go:22: 密码错误！phone =  18897776559
+[DEBUG]2020/12/11 08:07:42 business_service.go:83: record not found
+[DEBUG]2020/12/11 08:07:51 business_service.go:83: record not found
+[DEBUG]2020/12/11 08:08:57 business_service.go:83: record not found
+[DEBUG]2020/12/11 08:09:20 business_service.go:83: record not found
+[DEBUG]2020/12/11 09:08:24 business_service.go:51: record not found
+[DEBUG]2020/12/11 09:08:25 business_service.go:51: record not found
+[DEBUG]2020/12/12 07:32:48 material_service.go:37: Error 1103: Incorrect table name ''
+[DEBUG]2020/12/12 08:01:23 material_controller.go:80: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2020/12/12 08:03:01 material_controller.go:80: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2020/12/12 08:03:35 material_controller.go:80: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2020/12/12 08:04:02 material_controller.go:80: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2020/12/12 08:04:22 material_controller.go:80: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2020/12/12 08:16:59 business_service.go:51: record not found
+[DEBUG]2020/12/12 08:17:04 dept_service.go:99: record not found
+[DEBUG]2020/12/12 08:17:04 dept_service.go:109: record not found
+[DEBUG]2020/12/12 08:17:04 business_service.go:15: &{400 record not found <nil>}
+[DEBUG]2020/12/12 08:18:09 material_controller.go:51: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2020/12/12 08:19:46 material_controller.go:57: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2020/12/12 08:20:25 material_controller.go:57: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2020/12/12 08:20:57 material_controller.go:57: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2020/12/12 09:00:00 business_controller.go:88: strconv.ParseFloat: parsing "": invalid syntax
+[DEBUG]2020/12/12 09:00:53 business_controller.go:88: strconv.ParseFloat: parsing "": invalid syntax
+[DEBUG]2020/12/12 09:02:01 business_controller.go:88: strconv.ParseFloat: parsing "": invalid syntax
+[DEBUG]2020/12/12 09:02:44 business_controller.go:88: strconv.ParseFloat: parsing "": invalid syntax
+[DEBUG]2020/12/12 09:03:17 business_controller.go:88: strconv.ParseFloat: parsing "": invalid syntax
+[DEBUG]2020/12/12 09:03:56 business_controller.go:88: strconv.ParseFloat: parsing "": invalid syntax
+[DEBUG]2020/12/12 09:05:04 business_controller.go:88: strconv.ParseFloat: parsing "": invalid syntax
+[DEBUG]2020/12/13 07:58:49 admin_service.go:14: 待查找的管理员账号： 
+[DEBUG]2020/12/13 07:58:49 admin_service.go:16: 找到的管理员ID： 0
+[DEBUG]2020/12/13 07:58:49 admin_service.go:35: 高级用户不存在！已经创建
+[DEBUG]2020/12/13 08:00:30 admin_service.go:14: 待查找的管理员账号： 18897776559
+[DEBUG]2020/12/13 08:00:30 admin_service.go:16: 找到的管理员ID： 1
+[DEBUG]2020/12/13 08:00:30 admin_service.go:33: 高级用户已经存在！
+[DEBUG]2020/12/13 08:01:29 admin_service.go:14: 待查找的管理员账号： 18897776559
+[DEBUG]2020/12/13 08:01:29 admin_service.go:16: 找到的管理员ID： 0
+[DEBUG]2020/12/13 08:01:29 admin_service.go:35: 高级用户不存在！已经创建
+[DEBUG]2020/12/13 08:02:17 admin_service.go:14: 待查找的管理员账号： 18897776559
+[DEBUG]2020/12/13 08:02:17 admin_service.go:16: 找到的管理员ID： 0
+[DEBUG]2020/12/13 08:02:17 admin_service.go:35: 高级用户不存在！已经创建
+[DEBUG]2020/12/13 08:14:07 admin_service.go:14: 待查找的管理员账号： 18897776559
+[DEBUG]2020/12/13 08:14:07 admin_service.go:16: 找到的管理员ID： 3
+[DEBUG]2020/12/13 08:14:07 admin_service.go:33: 高级用户已经存在！
+[DEBUG]2020/12/13 08:18:56 admin_service.go:14: 待查找的管理员账号： 18897776559
+[DEBUG]2020/12/13 08:18:56 admin_service.go:16: 找到的管理员ID： 3
+[DEBUG]2020/12/13 08:18:56 admin_service.go:33: 高级用户已经存在！

@@ -1,9 +1,9 @@
 package router
 
 import (
-	"claps-admin/controller"
-	"claps-admin/middleware"
 	"github.com/gin-gonic/gin"
+	"wefive/controller"
+	"wefive/middleware"
 )
 
 func CollectRoute(r *gin.Engine) *gin.Engine {
@@ -24,5 +24,12 @@ func CollectRoute(r *gin.Engine) *gin.Engine {
 	r.GET("business/:name/all", controller.SendAllBusinessOfDept)
 	r.POST("business/:name/add", controller.AddBusiness)
 	r.POST("business/:name/delete", controller.DeleteBusiness)
+	r.POST("bus/get", controller.SendBusiness)
+	r.POST("bus/update", controller.UpdateBusiness)
+
+	r.POST("material/get", controller.SendMaterials)
+	r.POST("material/add", controller.AddMaterial)
+	r.POST("material/update", controller.UpdateMaterial)
+	r.POST("material/delete", controller.DeleteMaterial)
 	return r
 }

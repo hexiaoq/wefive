@@ -1,13 +1,13 @@
 package middleware
 
 import (
-	"claps-admin/common"
-	"claps-admin/model"
-	"claps-admin/response"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
 	"log"
+	"wefive/common"
+	"wefive/model"
+	"wefive/response"
 )
 
 const AuthOff = "off"

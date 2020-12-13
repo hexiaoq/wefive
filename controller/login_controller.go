@@ -1,12 +1,12 @@
 package controller
 
 import (
-	"claps-admin/model"
-	"claps-admin/response"
-	"claps-admin/service"
-	"claps-admin/util"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
+	"wefive/model"
+	"wefive/response"
+	"wefive/service"
+	"wefive/util"
 )
 
 type Conf struct {

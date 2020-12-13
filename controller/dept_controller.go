@@ -1,13 +1,13 @@
 package controller
 
 import (
-	"claps-admin/model"
-	"claps-admin/response"
-	"claps-admin/service"
-	"claps-admin/util"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"strconv"
+	"wefive/model"
+	"wefive/response"
+	"wefive/service"
+	"wefive/util"
 )
 
 func AddDepartment(ctx *gin.Context) {
@@ -29,7 +29,11 @@ func AddDepartment(ctx *gin.Context) {
 func DepartmentDelete(ctx *gin.Context) {
 	var deptMap = make(map[string]string)
 	json.NewDecoder(ctx.Request.Body).Decode(&deptMap)
-	deptId, _ := strconv.Atoi(deptMap["deptId"])
+	deptId, cerr := strconv.Atoi(deptMap["deptId"])
+	if cerr != nil {
+		response.Fail(ctx, nil, cerr.Error())
+		return
+	}
 	if err := service.DeleteDepartmentById(int64(deptId)); util.IsFailed(err) {
 		response.Fail(ctx, nil, err.Message)
 		return

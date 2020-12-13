@@ -1,10 +1,10 @@
 package service
 
 import (
-	"claps-admin/common"
-	"claps-admin/model"
-	"claps-admin/util"
 	"log"
+	"wefive/common"
+	"wefive/model"
+	"wefive/util"
 )
 
 // 验证登录账户和密码

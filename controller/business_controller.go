@@ -1,13 +1,14 @@
 package controller
 
 import (
-	"claps-admin/model"
-	"claps-admin/response"
-	"claps-admin/service"
-	"claps-admin/util"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
+	"log"
 	"strconv"
+	"wefive/model"
+	"wefive/response"
+	"wefive/service"
+	"wefive/util"
 )
 
 func SendAllBusinessOfDept(ctx *gin.Context) {
@@ -22,6 +23,21 @@ func SendAllBusinessOfDept(ctx *gin.Context) {
 		"businesses": *businesses,
 	}, "获取业务成功！")
 	return
+}
+
+func SendBusiness(ctx *gin.Context) {
+	var busMap = make(map[string]string)
+	json.NewDecoder(ctx.Request.Body).Decode(&busMap)
+	busId, _ := strconv.Atoi(busMap["busId"])
+	var business *model.Business
+	var err *util.Err
+	if business, err = service.GetBusinessById(int64(busId)); util.IsFailed(err) {
+		response.Fail(ctx, nil, err.Message)
+		return
+	}
+	response.Success(ctx, gin.H{
+		"business": *business,
+	}, "获取业务成功！")
 }
 
 func AddBusiness(ctx *gin.Context) {
@@ -45,9 +61,45 @@ func DeleteBusiness(ctx *gin.Context) {
 	var busMap = make(map[string]string)
 	json.NewDecoder(ctx.Request.Body).Decode(&busMap)
 	busId, _ := strconv.Atoi(busMap["busId"])
-	if err := service.DeleteBusinessById(int64(busId)); util.IsFailed(err) {
+	if err := service.DeleteBusiness(int64(busId)); util.IsFailed(err) {
 		response.Fail(ctx, nil, err.Message)
 		return
 	}
 	response.Success(ctx, nil, "删除业务成功！")
+}
+
+func UpdateBusiness(ctx *gin.Context) {
+	var busMap = make(map[string]string)
+	json.NewDecoder(ctx.Request.Body).Decode(&busMap)
+	busId, cerr := strconv.Atoi(busMap["busId"])
+	if cerr != nil {
+		log.Println(cerr.Error())
+		response.Fail(ctx, nil, cerr.Error())
+		return
+	}
+	deptId, cerr := strconv.Atoi(busMap["deptId"])
+	if cerr != nil {
+		log.Println(cerr.Error())
+		response.Fail(ctx, nil, cerr.Error())
+		return
+	}
+	cost, cerr := strconv.ParseFloat(busMap["cost"], 64)
+	if cerr != nil {
+		log.Println(cerr.Error())
+		response.Fail(ctx, nil, cerr.Error())
+		return
+	}
+	var business model.Business
+	business.BusId = int64(busId)
+	business.DeptId = int64(deptId)
+	business.Description = busMap["description"]
+	business.Requirement = busMap["requirement"]
+	business.BusName = busMap["busName"]
+	business.Cost = cost
+
+	if err := service.UpdateBusiness(&business); util.IsFailed(err) {
+		response.Fail(ctx, nil, err.Message)
+		return
+	}
+	response.Success(ctx, nil, "业务修改成功！")
 }

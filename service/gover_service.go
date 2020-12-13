@@ -1,10 +1,10 @@
 package service
 
 import (
-	"claps-admin/common"
-	"claps-admin/model"
-	"claps-admin/util"
 	"log"
+	"wefive/common"
+	"wefive/model"
+	"wefive/util"
 )
 
 func AddGovernor(phone string, deptName string) *util.Err {
@@ -29,6 +29,16 @@ func AddGovernor(phone string, deptName string) *util.Err {
 func DeleteGovernorByPhone(phone string) *util.Err {
 	db := common.GetDB()
 	if err := db.Where("phone = ?", phone).Delete(&model.Governor{}).Error; err != nil {
+		log.Println(err)
+		return util.Fail(err.Error())
+	}
+	return util.Success()
+}
+
+func DeleteGovernorByDeptId(deptId int64) *util.Err {
+	db := common.GetDB()
+	err := db.Where("dept_id = ?", deptId).Delete(&model.Governor{}).Error
+	if err != nil {
 		log.Println(err)
 		return util.Fail(err.Error())
 	}

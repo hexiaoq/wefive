@@ -1,13 +1,14 @@
 package main
 
 import (
-	"claps-admin/common"
-	"claps-admin/router"
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/spf13/viper"
 	"log"
 	"os"
+	"wefive/common"
+	"wefive/router"
+	"wefive/service"
 )
 
 func main() {
@@ -18,6 +19,9 @@ func main() {
 	initLog()
 	db := common.InitDB()
 	defer db.Close()
+
+	// 初始化管理员
+	service.InitAdmin()
 
 	r := gin.Default()
 	r = router.CollectRoute(r)
@@ -49,7 +53,7 @@ func initConfig() {
 func initLog() {
 	file := viper.GetString("logfile.path")
 	logFile, err := os.OpenFile(file, os.O_RDWR|os.O_CREATE|os.O_APPEND, 0766)
-	if err != nil && os.IsNotExist(err){
+	if err != nil && os.IsNotExist(err) {
 		logFile, _ = os.Create(file)
 	} else if err != nil {
 		panic(err)

@@ -1,10 +1,10 @@
 package service
 
 import (
-	"claps-admin/common"
-	"claps-admin/model"
-	"claps-admin/util"
 	"log"
+	"wefive/common"
+	"wefive/model"
+	"wefive/util"
 )
 
 // 添加一个部门
@@ -48,8 +48,16 @@ func DeleteDepartmentById(deptId int64) *util.Err {
 	// 删除部门
 	db.Where("dept_id = ?", deptId).Delete(&model.Department{})
 	// 删除业务
+	if err := DeleteBusinessByDeptId(deptId); util.IsFailed(err) {
+		log.Println(err)
+		return util.Fail(err.Message)
+	}
 
 	// 删除人员
+	if err := DeleteGovernorByDeptId(deptId); util.IsFailed(err) {
+		log.Println(err)
+		return util.Fail(err.Message)
+	}
 
 	return util.Success()
 }

@@ -12,9 +12,13 @@ import (
 )
 
 func SendMaterials(ctx *gin.Context) {
-	var busMap = make(map[string]string)
-	json.NewDecoder(ctx.Request.Body).Decode(&busMap)
-	busId, _ := strconv.Atoi(busMap["busId"])
+	var mMap = make(map[string]string)
+	json.NewDecoder(ctx.Request.Body).Decode(&mMap)
+	busId, err1 := strconv.Atoi(mMap["busId"])
+	if err1 != nil {
+		response.Fail(ctx, nil, err1.Error())
+		return
+	}
 	var materials *[]model.Material
 	var err *util.Err
 	if materials, err = service.GetMaterialsByBusId(int64(busId)); util.IsFailed(err) {

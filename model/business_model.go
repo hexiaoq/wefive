@@ -8,3 +8,18 @@ type Business struct {
 	Requirement string  `json:"requirement,omitempty" gorm:"type:varchar(500);default:null"`
 	Cost        float64 `json:"cost,omitempty" gorm:"type:real;default:null"`
 }
+
+type BusinessDto struct {
+	BusId       int64   `json:"bus_id"`
+	BusName     string  `json:"bus_name"`
+	Requirement string  `json:"requirement"`
+	Description string  `json:"description"`
+	Cost        float64 `json:"cost"`
+
+	DeptId   int64  `json:"dept_id"`
+	Phone    string `json:"phone"`
+	Location string `json:"location"`
+	DeptName string `json:"dept_name"`
+	WorkTime string `json:"work_time"`
+	Picture  string `json:"picture"`
+}

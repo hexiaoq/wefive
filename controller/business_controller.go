@@ -12,10 +12,14 @@ import (
 )
 
 func SendAllBusinessOfDept(ctx *gin.Context) {
-	deptName := ctx.Param("name")
+	deptId, err1 := strconv.Atoi(ctx.Param("deptId"))
+	if err1 != nil {
+		response.Fail(ctx, nil, err1.Error())
+		return
+	}
 	var businesses *[]model.Business
 	var err *util.Err
-	if businesses, err = service.GetAllBusinessesByDeptName(deptName); util.IsFailed(err) {
+	if businesses, err = service.GetAllBusinessesByDeptId(int64(deptId)); util.IsFailed(err) {
 		response.Fail(ctx, nil, err.Message)
 		return
 	}
@@ -23,6 +27,26 @@ func SendAllBusinessOfDept(ctx *gin.Context) {
 		"businesses": *businesses,
 	}, "获取业务成功！")
 	return
+}
+
+func SendAllBusinessOfDeptByDeptId(ctx *gin.Context) {
+	var mMap = make(map[string]string)
+	json.NewDecoder(ctx.Request.Body).Decode(&mMap)
+	deptId, err1 := strconv.Atoi(mMap["deptId"])
+	if err1 != nil {
+		log.Println(err1)
+		response.Fail(ctx, nil, err1.Error())
+		return
+	}
+	var businesses *[]model.Business
+	var err *util.Err
+	if businesses, err = service.GetAllBusinessesByDeptId(int64(deptId)); util.IsFailed(err) {
+		response.Fail(ctx, nil, err.Message)
+		return
+	}
+	response.Success(ctx, gin.H{
+		"businesses": *businesses,
+	}, "获取业务成功！")
 }
 
 func SendBusiness(ctx *gin.Context) {
@@ -38,6 +62,18 @@ func SendBusiness(ctx *gin.Context) {
 	response.Success(ctx, gin.H{
 		"business": *business,
 	}, "获取业务成功！")
+}
+
+// 获取热门业务
+func SendHotBusiness(ctx *gin.Context) {
+	businesses, err := service.GetHotBusiness()
+	if util.IsFailed(err) {
+		response.Fail(ctx, nil, err.Message)
+		return
+	}
+	response.Success(ctx, gin.H{
+		"businesses": *businesses,
+	}, "获取热门业务成功！")
 }
 
 func AddBusiness(ctx *gin.Context) {

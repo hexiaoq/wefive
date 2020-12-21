@@ -58,3 +58,38 @@ func DeleteMaterialByBusId(busId int64) *util.Err {
 	}
 	return util.Success()
 }
+
+// 根据流程id获取所有材料
+func GetMaterialsByProcessId(processId int64) (*[]model.Material, *util.Err) {
+	db := common.GetDB()
+	var materials []model.Material
+
+	// 查流程材料表
+	var processMaterials []model.ProcessMaterial
+	if err := db.Where("process_id = ?", processId).Find(&processMaterials).Error; err != nil {
+		log.Println(err)
+		return nil, util.Fail(err.Error())
+	}
+
+	// 按材料id获取材料
+	for _, pm := range processMaterials {
+		material, err1 := GetMaterialById(pm.MaterialId)
+		if util.IsFailed(err1) {
+			log.Println(err1)
+			continue
+		}
+		materials = append(materials, *material)
+	}
+	return &materials, util.Success()
+}
+
+func GetMaterialById(materialId int64) (*model.Material, *util.Err) {
+	db := common.GetDB()
+	var material model.Material
+	err := db.Where("material_id = ?", materialId).First(&material).Error
+	if err != nil {
+		log.Println(err)
+		return nil, util.Fail(err.Error())
+	}
+	return &material, util.Success()
+}

@@ -111,3 +111,36 @@ func GetDeptIdByName(deptName string) (int64, *util.Err) {
 	}
 	return dept.DeptId, util.Success()
 }
+
+func UpdateDepartment(department *model.Department) *util.Err {
+	depart, err := GetDepartmentById(department.DeptId)
+	if util.IsFailed(err) {
+		log.Println(err)
+		return err
+	}
+	if len(department.DeptName) > 0 {
+		depart.DeptName = department.DeptName
+	}
+	if len(department.Contact) > 0 {
+		depart.Contact = department.Contact
+	}
+	if len(department.Picture) > 0 {
+		depart.Picture = department.Picture
+	}
+	if len(department.Location) > 0 {
+		depart.Location = department.Location
+	}
+	if len(department.Description) > 0 {
+		depart.Description = department.Description
+	}
+	if len(department.WorkTime) > 0 {
+		depart.WorkTime = department.WorkTime
+	}
+	db := common.GetDB()
+	err1 := db.Save(depart).Error
+	if err1 != nil {
+		log.Println(err1.Error())
+		return util.Fail(err1.Error())
+	}
+	return util.Success()
+}

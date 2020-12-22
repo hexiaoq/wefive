@@ -11,15 +11,10 @@ import (
 	"wefive/util"
 )
 
-func SendAllBusinessOfDept(ctx *gin.Context) {
-	deptId, err1 := strconv.Atoi(ctx.Param("deptId"))
-	if err1 != nil {
-		response.Fail(ctx, nil, err1.Error())
-		return
-	}
+func SendAllBusiness(ctx *gin.Context) {
 	var businesses *[]model.Business
 	var err *util.Err
-	if businesses, err = service.GetAllBusinessesByDeptId(int64(deptId)); util.IsFailed(err) {
+	if businesses, err = service.GetAllBusinesses(); util.IsFailed(err) {
 		response.Fail(ctx, nil, err.Message)
 		return
 	}
@@ -80,12 +75,16 @@ func AddBusiness(ctx *gin.Context) {
 	var busMap = make(map[string]string)
 	var business model.Business
 	json.NewDecoder(ctx.Request.Body).Decode(&busMap)
-	deptName := ctx.Param("name")
+	deptId, err1 := strconv.Atoi(ctx.Param("deptId"))
+	if err1 != nil {
+		response.Fail(ctx, nil, err1.Error())
+		return
+	}
 	business.BusName = busMap["busName"]
 	business.Description = busMap["description"]
 	business.Requirement = busMap["requirement"]
 	business.Cost, _ = strconv.ParseFloat(busMap["cost"], 8)
-	if err := service.AddBusiness(&business, deptName); util.IsFailed(err) {
+	if err := service.AddBusiness(&business, int64(deptId)); util.IsFailed(err) {
 		response.Fail(ctx, nil, err.Message)
 		return
 	}
@@ -93,10 +92,11 @@ func AddBusiness(ctx *gin.Context) {
 }
 
 func DeleteBusiness(ctx *gin.Context) {
-	//deptName := ctx.Param("name")
-	var busMap = make(map[string]string)
-	json.NewDecoder(ctx.Request.Body).Decode(&busMap)
-	busId, _ := strconv.Atoi(busMap["busId"])
+	busId, err1 := strconv.Atoi(ctx.Param("busId"))
+	if err1 != nil {
+		response.Fail(ctx, nil, err1.Error())
+		return
+	}
 	if err := service.DeleteBusiness(int64(busId)); util.IsFailed(err) {
 		response.Fail(ctx, nil, err.Message)
 		return
@@ -138,4 +138,21 @@ func UpdateBusiness(ctx *gin.Context) {
 		return
 	}
 	response.Success(ctx, nil, "业务修改成功！")
+}
+
+// 从业务模板中添加业务
+func AddBusTemplate(ctx *gin.Context) {
+	var busMap = make(map[string]string)
+	json.NewDecoder(ctx.Request.Body).Decode(&busMap)
+	busName := busMap["busName"]
+	deptId, err1 := strconv.Atoi(busMap["deptId"])
+	if err1 != nil {
+		response.Fail(ctx, nil, err1.Error())
+		return
+	}
+	if err := service.AddBusTemplate(busName, int64(deptId)); util.IsFailed(err) {
+		response.Fail(ctx, nil, err.Message)
+		return
+	}
+	response.Success(ctx, nil, "添加业务模板成功！")
 }

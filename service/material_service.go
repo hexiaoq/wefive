@@ -19,15 +19,15 @@ func GetMaterialsByBusId(busId int64) (*[]model.Material, *util.Err) {
 	return &materials, util.Success()
 }
 
-func AddMaterial(material *model.Material, busId int64) *util.Err {
+func AddMaterial(material *model.Material, busId int64) (int64, *util.Err) {
 	db := common.GetDB()
 	material.BusId = busId
 	err := db.Create(material).Error
 	if err != nil {
 		log.Println(err)
-		return util.Fail(err.Error())
+		return 0, util.Fail(err.Error())
 	}
-	return util.Success()
+	return material.MaterialId, util.Success()
 }
 
 func UpdateMaterial(material *model.Material) *util.Err {
@@ -43,6 +43,11 @@ func UpdateMaterial(material *model.Material) *util.Err {
 func DeleteMaterial(materialId int64) *util.Err {
 	db := common.GetDB()
 	if err := db.Where("material_id = ?", materialId).Delete(&model.Material{}).Error; err != nil {
+		log.Println(err)
+		return util.Fail(err.Error())
+	}
+	// 在流程材料表中删除
+	if err := db.Where("material_id = ?", materialId).Delete(&model.ProcessMaterial{}).Error; err != nil {
 		log.Println(err)
 		return util.Fail(err.Error())
 	}

@@ -96,7 +96,6 @@ func DeleteProcessByBusId(busId int64) *util.Err {
 		err = db.Where("process_id = ?", process.ProcessId).Delete(&model.ProcessMaterial{}).Error
 		if err != nil {
 			log.Println(err)
-			continue
 		}
 	}
 

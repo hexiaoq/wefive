@@ -38,11 +38,16 @@ func AddMaterial(ctx *gin.Context) {
 	material.MaterialName = mMap["materialName"]
 	material.Description = mMap["description"]
 	material.PhotoUrl = mMap["photoUrl"]
-	if err := service.AddMaterial(&material, int64(busId)); util.IsFailed(err) {
+
+	var err *util.Err
+	var materialId int64
+	if materialId, err = service.AddMaterial(&material, int64(busId)); util.IsFailed(err) {
 		response.Fail(ctx, nil, err.Message)
 		return
 	}
-	response.Success(ctx, nil, "材料添加成功！")
+	response.Success(ctx, gin.H{
+		"materialId": materialId,
+	}, "材料添加成功！")
 }
 
 func UpdateMaterial(ctx *gin.Context) {

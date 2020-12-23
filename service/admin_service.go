@@ -11,9 +11,7 @@ import (
 func IsAdminExist(phone string) bool {
 	db := common.GetDB()
 	var admin model.Admin
-	log.Println("待查找的管理员账号：", phone)
 	db.Where("phone = ?", phone).First(&admin)
-	log.Println("找到的管理员ID：", admin.AdminId)
 	if admin.AdminId != 0 {
 		return true
 	}
@@ -29,9 +27,7 @@ func InitAdmin() {
 		Phone:    viper.GetString("admin.phone"),
 	}
 
-	if IsAdminExist(admin.Phone) {
-		log.Println("高级用户已经存在！")
-	} else {
+	if !IsAdminExist(admin.Phone) {
 		log.Println("高级用户不存在！已经创建")
 		DB.Create(&admin)
 	}

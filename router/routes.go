@@ -23,13 +23,14 @@ func CollectRoute(r *gin.Engine) *gin.Engine {
 	r.POST("gover/add", controller.AddGovernor)
 	r.POST("gover/delete", controller.DeleteGovernor)
 
-	r.GET("business/all/:deptId", controller.SendAllBusinessOfDept)
-	r.POST("business/:name/add", controller.AddBusiness)
-	r.POST("business/:name/delete", controller.DeleteBusiness)
+	r.GET("business/all", controller.SendAllBusiness)
+	r.POST("business/add/:deptId", controller.AddBusiness)
+	r.POST("business/delete/:busId", controller.DeleteBusiness)
 	r.POST("businesses/get", controller.SendAllBusinessOfDeptByDeptId)
 	r.GET("businesses/getHot", controller.SendHotBusiness)
 	r.POST("bus/get", controller.SendBusiness)
 	r.POST("bus/update", controller.UpdateBusiness)
+	r.POST("bus/addTemplate", controller.AddBusTemplate)
 
 	r.POST("material/get", controller.SendMaterials)
 	r.POST("material/add", controller.AddMaterial)
@@ -39,9 +40,13 @@ func CollectRoute(r *gin.Engine) *gin.Engine {
 	r.POST("process/add", controller.AddProcessForBus)
 	r.POST("process/addMaterial/:processId", controller.AddProcessMaterial)
 	r.GET("process/all/:busId", controller.SendAllProcessOfBus)
-	/*r.GET("process/busGet/:busId", controller.SendBusProcess)*/
 	r.POST("process/delete", controller.DeleteProcess)
 	r.POST("process/deleteMaterial", controller.DeleteProcessMaterial)
+
+	r.GET("chat/getHot", controller.GetHotChats)
+	r.GET("chat/get/:chatId", controller.SendChat)
+	r.GET("chat/getSubChat/:chatId", controller.SendSubChat)
+	r.POST("chat/create", controller.CreateChat)
 
 	return r
 }

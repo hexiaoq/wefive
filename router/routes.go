@@ -43,5 +43,10 @@ func CollectRoute(r *gin.Engine) *gin.Engine {
 	r.POST("process/delete", controller.DeleteProcess)
 	r.POST("process/deleteMaterial", controller.DeleteProcessMaterial)
 
+	r.GET("chat/getHot", controller.GetHotChats)
+	r.GET("chat/get/:chatId", controller.SendChat)
+	r.GET("chat/getSubChat/:chatId", controller.SendSubChat)
+	r.POST("chat/create", controller.CreateChat)
+
 	return r
 }

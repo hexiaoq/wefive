@@ -224,3 +224,8 @@
 [DEBUG]2020/12/21 06:57:04 business_service.go:63: &{400 record not found <nil>}
 [DEBUG]2020/12/22 02:24:22 business_service.go:78: record not found
 [DEBUG]2020/12/22 02:24:30 business_service.go:78: record not found
+[DEBUG]2020/12/22 07:13:00 chat_serivce.go:42: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?) LIMIT 1' at line 1
+[DEBUG]2020/12/22 07:13:00 chat_serivce.go:26: &{400 Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '?) LIMIT 1' at line 1 <nil>}
+[DEBUG]2020/12/22 08:28:55 user_service.go:15: record not found
+[DEBUG]2020/12/22 08:28:55 chat_serivce.go:82: &{400 record not found <nil>}
+[DEBUG]2020/12/22 08:28:55 chat_serivce.go:31: &{400 record not found <nil>}

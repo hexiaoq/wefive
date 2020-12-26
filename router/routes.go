@@ -47,6 +47,9 @@ func CollectRoute(r *gin.Engine) *gin.Engine {
 	r.GET("chat/get/:chatId", controller.SendChat)
 	r.GET("chat/getSubChat/:chatId", controller.SendSubChat)
 	r.POST("chat/create", controller.CreateChat)
-
+	r.POST("chat/createSubChat", controller.CreateSubChat)
+	r.POST("chat/deleteSubChat", controller.DeleteSubChat)
+	r.POST("chat/like", controller.LikeChat)
+	r.POST("chat/getByTitle", controller.SendChatByTitle)
 	return r
 }

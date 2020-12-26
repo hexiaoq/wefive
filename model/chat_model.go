@@ -2,6 +2,7 @@ package model
 
 type Chat struct {
 	ChatId      int64  `json:"chat_id"`
+	Title       string `json:"title"`
 	UserId      int64  `json:"user_id"`
 	Content     string `json:"content"`
 	Discussions int    `json:"discussions"`

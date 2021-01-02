@@ -2,10 +2,10 @@ package service
 
 import (
 	"fmt"
+	"gover-server/common"
+	"gover-server/model"
+	"gover-server/util"
 	"log"
-	"wefive/common"
-	"wefive/model"
-	"wefive/util"
 )
 
 func AddProcessForBus(process *model.Process) *util.Err {

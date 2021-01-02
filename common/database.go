@@ -5,7 +5,7 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/lib/pq"
 	"github.com/spf13/viper"
-	"wefive/model"
+	"gover-server/model"
 )
 
 var DB *gorm.DB
@@ -14,11 +14,15 @@ func InitDB() *gorm.DB {
 	//配置项读取
 	driverName := viper.GetString("datasource.driverName")
 
-	args := fmt.Sprintf("%s:%s@/%s?charset=%s&parseTime=True",
+	args := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=%s&parseTime=True",
 		viper.GetString("datasource.username"),
 		viper.GetString("datasource.password"),
+		viper.GetString("datasource.host"),
+		viper.GetString("datasource.port"),
 		viper.GetString("datasource.database"),
 		viper.GetString("datasource.charset"))
+
+	fmt.Println(args)
 
 	db, err := gorm.Open(driverName, args)
 	if err != nil {

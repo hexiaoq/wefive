@@ -2,9 +2,9 @@ package service
 
 import (
 	"github.com/spf13/viper"
+	"gover-server/common"
+	"gover-server/model"
 	"log"
-	"wefive/common"
-	"wefive/model"
 )
 
 // 在数据库中判断一名申请登录的用户是否为管理员

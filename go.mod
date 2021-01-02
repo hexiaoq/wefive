@@ -1,4 +1,4 @@
-module wefive
+module gover-server
 
 go 1.14
 

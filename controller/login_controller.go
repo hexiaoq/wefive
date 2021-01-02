@@ -3,10 +3,10 @@ package controller
 import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
-	"wefive/model"
-	"wefive/response"
-	"wefive/service"
-	"wefive/util"
+	"gover-server/model"
+	"gover-server/response"
+	"gover-server/service"
+	"gover-server/util"
 )
 
 type Conf struct {

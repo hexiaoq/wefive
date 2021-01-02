@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/viper"
+	"gover-server/common"
+	"gover-server/model"
+	"gover-server/response"
 	"log"
-	"wefive/common"
-	"wefive/model"
-	"wefive/response"
 )
 
 const AuthOff = "off"

@@ -4,11 +4,11 @@ import (
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/spf13/viper"
+	"gover-server/common"
+	"gover-server/router"
+	"gover-server/service"
 	"log"
 	"os"
-	"wefive/common"
-	"wefive/router"
-	"wefive/service"
 )
 
 func main() {

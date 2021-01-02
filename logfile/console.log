@@ -10,3 +10,14 @@
 [DEBUG]2020/12/22 08:28:55 chat_serivce.go:31: &{400 record not found <nil>}
 [DEBUG]2020/12/24 12:28:06 dept_service.go:87: record not found
 [DEBUG]2020/12/24 12:28:14 dept_service.go:87: record not found
+[DEBUG]2020/12/27 06:29:23 business_controller.go:32: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2020/12/27 06:31:04 business_controller.go:32: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2021/01/01 06:25:23 business_controller.go:32: strconv.Atoi: parsing "": invalid syntax
+[DEBUG]2021/01/01 14:58:47 comment_service.go:33: Error 1062: Duplicate entry '16' for key 'PRIMARY'
+[DEBUG]2021/01/01 14:58:47 comment_controller.go:42: &{400 Error 1062: Duplicate entry '16' for key 'PRIMARY' <nil>}
+[DEBUG]2021/01/01 14:59:30 comment_service.go:33: Error 1103: Incorrect table name ''
+[DEBUG]2021/01/01 14:59:30 comment_controller.go:42: &{400 Error 1103: Incorrect table name '' <nil>}
+[DEBUG]2021/01/01 15:01:15 comment_service.go:33: Error 1062: Duplicate entry '16' for key 'PRIMARY'
+[DEBUG]2021/01/01 15:01:15 comment_controller.go:42: &{400 Error 1062: Duplicate entry '16' for key 'PRIMARY' <nil>}
+[DEBUG]2021/01/01 15:02:48 comment_service.go:33: Error 1062: Duplicate entry '16' for key 'PRIMARY'
+[DEBUG]2021/01/01 15:02:48 comment_controller.go:42: &{400 Error 1062: Duplicate entry '16' for key 'PRIMARY' <nil>}

@@ -2,10 +2,10 @@ package common
 
 import (
 	"github.com/dgrijalva/jwt-go"
+	"gover-server/model"
+	"gover-server/util"
 	"log"
 	"time"
-	"wefive/model"
-	"wefive/util"
 )
 
 // 根据此值进行哈希

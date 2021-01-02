@@ -1,10 +1,10 @@
 package service
 
 import (
+	"gover-server/common"
+	"gover-server/model"
+	"gover-server/util"
 	"log"
-	"wefive/common"
-	"wefive/model"
-	"wefive/util"
 )
 
 // 添加一个部门

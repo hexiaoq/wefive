@@ -2,8 +2,8 @@ package router
 
 import (
 	"github.com/gin-gonic/gin"
-	"wefive/controller"
-	"wefive/middleware"
+	"gover-server/controller"
+	"gover-server/middleware"
 )
 
 func CollectRoute(r *gin.Engine) *gin.Engine {
@@ -51,5 +51,8 @@ func CollectRoute(r *gin.Engine) *gin.Engine {
 	r.POST("chat/deleteSubChat", controller.DeleteSubChat)
 	r.POST("chat/like", controller.LikeChat)
 	r.POST("chat/getByTitle", controller.SendChatByTitle)
+
+	r.GET("comment/getDept/:deptId", controller.SendDeptComment)
+	r.POST("comment/feedBack", controller.FeedBack)
 	return r
 }

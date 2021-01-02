@@ -3,11 +3,11 @@ package controller
 import (
 	"encoding/json"
 	"github.com/gin-gonic/gin"
+	"gover-server/model"
+	"gover-server/response"
+	"gover-server/service"
+	"gover-server/util"
 	"strconv"
-	"wefive/model"
-	"wefive/response"
-	"wefive/service"
-	"wefive/util"
 )
 
 func GetHotChats(ctx *gin.Context) {

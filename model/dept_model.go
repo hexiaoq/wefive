@@ -8,4 +8,6 @@ type Department struct {
 	Description string `json:"description" gorm:"type:varchar(200);default:null"`
 	Picture     string `json:"picture"`
 	Contact     string `json:"contact"`
+	Longtitude  string `json:"longtitude"`
+	Latitude    string `json:"latitude"`
 }

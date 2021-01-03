@@ -26,7 +26,6 @@ func FeedBack(commentId int64, reply string) *util.Err {
 		return err
 	}
 	comment.Reply = reply
-	comment.Delete1 = "1"
 	db := common.GetDB()
 	db.Where("comment_id = ?", commentId).Delete(&model.Comment{})
 	err1 := db.Save(&comment).Error

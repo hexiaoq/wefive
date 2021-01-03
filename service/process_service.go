@@ -38,6 +38,7 @@ func GetProcessesByBusId(busId int64) (*[]model.Process, *util.Err) {
 	db := common.GetDB()
 	var processes []model.Process
 	err := db.Where("bus_id = ?", busId).Find(&processes).Error
+	processes = sort(processes)
 	if err != nil {
 		log.Println(err)
 		return nil, util.Fail(err.Error())
@@ -117,4 +118,25 @@ func DeleteProcessMaterial(processId int64, materialId int64) *util.Err {
 		return util.Fail(err.Error())
 	}
 	return util.Success()
+}
+
+func sort(processes []model.Process) []model.Process {
+	if len(processes) <= 1 {
+		return processes
+	}
+
+	var pro []model.Process
+	for i := 0; i < len(processes); i++ {
+		var min = 999
+		minIndex := 0
+		for j := 0; j < len(processes); j++ {
+			if min > processes[j].Step {
+				minIndex = j
+				min = processes[j].Step
+			}
+		}
+		pro = append(pro, processes[minIndex])
+		processes[minIndex].Step = 999
+	}
+	return pro
 }
